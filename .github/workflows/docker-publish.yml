@@ -2,9 +2,10 @@ name: Build Container and Push to Contensis
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "publish" ]
   push:
-    branches: [ "main" ]
+    branches: [ "publish" ]
+  workflow_dispatch:
   
 env:
     IMAGE_NAME: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
