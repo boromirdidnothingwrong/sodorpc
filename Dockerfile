@@ -4,4 +4,5 @@ WORKDIR /
 EXPOSE 3001
 # simple docker file for now
 RUN npm ci
+RUN npm run build
 CMD ["node build"]
