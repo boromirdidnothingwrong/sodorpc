@@ -1,8 +1,8 @@
 FROM node:18-alpine
-COPY . .
+COPY package.json
+COPY package-lock.json
 WORKDIR /
 EXPOSE 3001
-# simple docker file for now
-RUN npm ci
+RUN npm ci --omit dev
 RUN npm run build
 CMD ["node build"]
