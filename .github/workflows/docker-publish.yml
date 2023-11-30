@@ -14,7 +14,7 @@ env:
 jobs:
   build:
     name: Build and push image
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions: write-all
     
     steps:
@@ -39,7 +39,7 @@ jobs:
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAGS }}
 
   push_to_contensis:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     steps:
       - name: Contensis block push action
