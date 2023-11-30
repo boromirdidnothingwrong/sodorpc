@@ -48,7 +48,7 @@ jobs:
           alias: staffscc
           block-id: master-has-given-dobby-a-block
           client-id: ${{ secrets.Z_CLIENT_ID }}
-          git-token: ${{ secrets.PERSONAL_TOKEN }}
+          git-token: ${{ github.token }}
           image-uri: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAGS }}
           project-id: sodorparishcouncil
           shared-secret: ${{ secrets.Z_SHARED_SECRET }}
