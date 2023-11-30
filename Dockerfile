@@ -1,7 +1,7 @@
 FROM node:18-alpine
-COPY package.json /build
-COPY package-lock.json /build
-WORKDIR /build
+COPY package.json /
+COPY package-lock.json /
+WORKDIR /
 EXPOSE 3001
 RUN npm ci --omit dev
 RUN npm run build
