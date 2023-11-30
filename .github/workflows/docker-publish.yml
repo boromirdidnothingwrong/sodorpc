@@ -46,9 +46,9 @@ jobs:
         uses: contensis/block-push@v1
         with:
           alias: staffscc
-          block-id: santa-is-coming-to-town
+          block-id: master-has-given-dobby-a-block
           client-id: ${{ secrets.Z_CLIENT_ID }}
           git-token: ${{ secrets.GIT_TOKEN }}
           image-uri: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAGS }}
-          project-id: testingJosh
+          project-id: sodorparishcouncil
           shared-secret: ${{ secrets.Z_SHARED_SECRET }}
