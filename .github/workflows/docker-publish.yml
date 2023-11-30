@@ -44,6 +44,7 @@ jobs:
     steps:
       - name: Contensis block push action
         uses: contensis/block-push@v1
+        echo: ${{--author-email}}
         with:
           alias: staffscc
           block-id: master-has-given-dobby-a-block
