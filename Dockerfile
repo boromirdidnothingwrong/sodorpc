@@ -3,5 +3,5 @@ COPY . .
 WORKDIR /
 EXPOSE 3001
 # simple docker file for now
-#RUN npm i
-CMD ["node"]
+RUN npm ci
+CMD ["node build"]
