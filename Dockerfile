@@ -5,4 +5,4 @@ COPY ./manifest.json /manifest.json
 EXPOSE 3001
 RUN npm i
 RUN npm run build
-CMD ["node", "build"]
+CMD ["PORT=3001", "node", "build"]
