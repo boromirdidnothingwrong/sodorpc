@@ -5,4 +5,4 @@ COPY ./manifest.json /manifest.json
 EXPOSE 3001
 RUN npm i
 RUN npm run build
-CMD ["node", "build", "PORT=3001"]
+ENTRYPOINT ["PROTOCOL_HEADER=x-forwarded-proto", "HOST_HEADER=x-forwarded-host", "PORT=3001", "node", "build"]
