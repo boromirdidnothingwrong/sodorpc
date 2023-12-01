@@ -3,6 +3,7 @@ RUN apk update && apk upgrade && apk add dumb-init && adduser -D svelteuser
 USER svelteuser
 WORKDIR /usr/app
 COPY ./ ./
+COPY /usr/app/manifest.json /
 COPY --chown=svelteuser:svelteuser ./ /usr/app
 RUN npm i && npm run build
 EXPOSE 3001
