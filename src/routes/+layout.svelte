@@ -12,6 +12,15 @@
 		}
 	});
 	let unsetTitle = '';
+
+	export async function load({ fetch, params }) {
+		const res = await fetch(
+			`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil`
+		);
+		const item = await res.json();
+
+		return { item };
+	}
 </script>
 
 <AppShell>
