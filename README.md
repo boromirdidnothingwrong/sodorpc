@@ -1,40 +1,18 @@
-# create-svelte
+#Example website for Parish Councils
 
-Additional text.
+Put styles in app.pcss. They *should* override the default styles. For certainty, set the styles on the elements themselves in +page.svelte.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+In +layout.svelte look at the svelte fragments. Stuff in there should render on every page! So the header and footer can be fixed in place, as they shouldn't actually change on any page.
 
-## Creating a project
+For routes, make a new folder. Each one is a page, under the root. So /src/routes/about/+page.svelte will be https://sodorpc.gov.uk/about. /about/councillors/+page.svelte will be https://sodorpc.gov.uk/about/councillors. 
 
-If you're seeing this, you've probably already done this step. Congrats!
+Fonts, idk look up how to add them in SvelteKit. Images should go in static. Vite will automagically convert those into webp to make things faster.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Themes? Look at skeleton.dev plus Tailwind.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Components, Skeleton and Tailwind.
 
-## Developing
+Content, should be loaded in using fetch() in +layout.svelte. Putting it in the layout file lets any page under that layout (which should be all of them), have access to the same data through PageLoad. 
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+TASK: Figure out how to load new data when the link is clicked. Moderately sure this is doable by calling back to layout? Need to see.
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
