@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { OneDrive } from '$env/static/private';
 	import { Paginator } from '@skeletonlabs/skeleton';
 	/** @type {import('./$types').PageServerData} */
 	export let data;
