@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Paginator } from '@skeletonlabs/skeleton';
-	/** @type {import('./$types').PageServerData} */
-	export let data;
+	import type { PageServerData } from './$types';
+	export let data: PageServerData;
 	data = JSON.stringify(data);
 	/* we could probably use data to fill the source with source data, each set would need to be an array of it's own, title and summary */
 	const blog1 = { title: 'Title1', summary: 'Farty Towels' };
