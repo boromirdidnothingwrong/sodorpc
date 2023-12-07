@@ -21,8 +21,8 @@ export async function load({ fetch, params, route}): Promise<{ item: any; }> {
       console.log("Root node data:" + JSON.stringify(rootNodeData));
       
       //Fetch the current node. If it's root then change what node you look up. It's done this above already so a better implementation may well be in order sirrah.
-        nodePath = params.slug;
-        if (params.slug === "/") {
+        nodePath = params.variable;
+        if (params.variable === "/") {
              nodePath = "root";
         }
         const nodeRes = await fetch(`${projectURL}/nodes/${nodePath}`, { headers: { "Authorization": `${bearer}` } });        

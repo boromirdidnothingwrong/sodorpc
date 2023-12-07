@@ -18,11 +18,12 @@
 	console.log(`This is the layout.svelte data ${tempdata}`);
 </script>
 
-/* Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on every page. Data for
-here is imported from +layout.server.js and is accessible to: The page for this route, which doesn't
-use it Any sub layouts (effectively adds a second layer of wrapping _inside_ this one) We don't have
-either here! So that makes it a bit easier */
-
+<!--
+Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on every page. Data for
+here is imported from +layout.server.js and is accessible to: The page for this route, which
+doesn't use it Any sub layouts (effectively adds a second layer of wrapping _inside_ this one) We
+don't have either here! So that makes it a bit easier */
+-->
 <AppShell>
 	<svelte:fragment slot="header">
 		<AppBar
@@ -35,9 +36,9 @@ either here! So that makes it a bit easier */
 				><img src={logo} alt="Sodor Parish Council logo" /></svelte:fragment
 			>
 			<p>
-				{#each data.children as child}
+				<!--{#each data.children as child}
 					<p>{child}</p>
-				{/each}
+				{/each}-->
 			</p>
 			<svelte:fragment slot="trail"></svelte:fragment>
 		</AppBar>

@@ -1,4 +1,7 @@
-export const projectURL = "https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil";
+import * as pVars from '$lib/server/projectVariables';
+
+export const projectURL = pVars.projectURL;
+
 
 async function fetchAccessToken() {
   let myHeaders = new Headers();

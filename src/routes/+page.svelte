@@ -30,7 +30,7 @@
 	<div class="layout">
 		<div class="menubar"></div>
 	</div>
-	<h1 style="text-align: center">Edingale Parish Council</h1>
+	<h1 style="text-align: center">{data}</h1>
 	<br />
 
 	<div>Page content area</div>
