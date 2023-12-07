@@ -32,6 +32,5 @@ async function fetchAccessToken() {
 // Export a single constant after fetching the access token
 export const aT = (async () => {
   const accessToken = await fetchAccessToken();
-  console.log('Access Token:', accessToken);
   return accessToken;
 })();

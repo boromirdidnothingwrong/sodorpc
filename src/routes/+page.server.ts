@@ -9,10 +9,7 @@ export async function load({ fetch, params, route}) {
             let node = "root";
         }
         const res = await fetch(`${projectURL}/nodes/${node}`, { headers: { 'Authorization': `${bearer}` } });        
-        const data = await res.json();
-        console.log('First fetch result:', data);
-        console.log(route.id);
-        
+        const data = await res.json();        
         let entryID = data.entry.sys.id;
         
   
@@ -20,9 +17,7 @@ export async function load({ fetch, params, route}) {
         if (!entryRes.ok) {
           throw new Error(`Request failed with status: ${entryRes.status}`);
         }
-  
         const entryData = await entryRes.json();
-        console.log ('Second data:', entryData);
         // Return the data obtained from the second fetch
         return { item: entryData };
       } 

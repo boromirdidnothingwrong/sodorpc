@@ -4,9 +4,7 @@
 	import type { AfterNavigate } from '@sveltejs/kit';
 	import { afterNavigate } from '$app/navigation';
 	import logo from '$lib/images/logo.png';
-	import { fetchAccessToken, projectURL } from '$lib/server/baseStuff.js';
-	
-
+	import type { LayoutServerData } from './$types';
 	afterNavigate((params: AfterNavigate) => {
 		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
 		const elemPage = document.querySelector('#page');
@@ -14,15 +12,16 @@
 			elemPage.scrollTop = 0;
 		}
 	});
-/** @type {import('./$types').LayoutLoad} */
-export async function load({ fetch, params, route}){
-  let token = await fetchAccessToken();
-  let bearer = `bearer ${token}`
-      const rootNodeRes = await fetch(`${projectURL}/nodes/root`, { headers : { 'Authorization': `${bearer}`}});
-      const rootNodeData = await rootNodeRes.json();
-      console.log("Root node data:" + JSON.stringify(rootNodeData));
-      return rootNodeData
+
+	export let data: LayoutServerData;
+	let tempdata: string = JSON.stringify(data);
+	console.log(`This is the layout.svelte data ${tempdata}`);
 </script>
+
+/* Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on every page. Data for
+here is imported from +layout.server.js and is accessible to: The page for this route, which doesn't
+use it Any sub layouts (effectively adds a second layer of wrapping _inside_ this one) We don't have
+either here! So that makes it a bit easier */
 
 <AppShell>
 	<svelte:fragment slot="header">
@@ -36,8 +35,9 @@ export async function load({ fetch, params, route}){
 				><img src={logo} alt="Sodor Parish Council logo" /></svelte:fragment
 			>
 			<p>
-				Render all the menu items here, and possibly the logic which shows what submenu you're
-				currently looking at
+				{#each data.children as child}
+					<p>{child}</p>
+				{/each}
 			</p>
 			<svelte:fragment slot="trail"></svelte:fragment>
 		</AppBar>

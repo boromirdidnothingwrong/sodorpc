@@ -4,7 +4,12 @@ import { aT, projectURL } from '$lib/server/baseStuff.js';
 
 
 export async function load({ fetch, params, route}): Promise<{ item: any; }> {
+
+  // The next two lines are mucky. Get the returned value from the access token fetch function aT, and then set accessToken to the property "access_token" of the object returned from aT. Or something, I'm not an engineer.
+  // All I can say is at least it works
   let accessToken = await aT;
+  accessToken = accessToken.access_token;
+  console.log(accessToken);
   let bearer = `bearer ${accessToken}`
   let nodePath:string;
     try {
@@ -25,9 +30,8 @@ export async function load({ fetch, params, route}): Promise<{ item: any; }> {
         console.log('Data for this Node/Path', data);
         //Set the ID for the entry ahead of getting it
         let entryID = data.id;
+        console.log(entryID);
 
-        console.log(${entryID});
-        
         if (entryID === undefined) {
           throw new Error("We bolloxed")
         }

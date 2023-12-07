@@ -2,7 +2,9 @@
 	import { Paginator } from '@skeletonlabs/skeleton';
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
-	/* we could probably use data to fill the source with source data, each set would need to be an array of it's own, title and summary */
+	/* we could probably use data to fill the source with source data, each set would need to be an array of it's own, title and summary 
+	This would be great for a blog slider. Get every child of the "blog" node
+	*/
 	const blog1 = { title: 'Title1', summary: 'Farty Towels' };
 	const blog2 = { title: 'Title2', summary: 'Farty Arse' };
 	const blog3 = { title: 'Title3', summary: 'Farty Bedsheets' };
