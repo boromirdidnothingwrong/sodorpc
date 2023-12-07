@@ -2,8 +2,8 @@
 	import '../app.pcss';
 	import { AppShell, AppBar, LightSwitch } from '@skeletonlabs/skeleton';
 	import type { AfterNavigate } from '@sveltejs/kit';
-	import type { PageLoad } from './$types';
 	import { afterNavigate } from '$app/navigation';
+	import logo from '$lib/images/logo.png';
 
 	afterNavigate((params: AfterNavigate) => {
 		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
@@ -69,9 +69,14 @@
 			slotTrail="place-content-end"
 			background="bg-#285F32"
 		>
-			<svelte:fragment slot="lead">LOGO</svelte:fragment>
-			Menu bar
-			<svelte:fragment slot="trail"><LightSwitch /></svelte:fragment>
+			<svelte:fragment slot="lead"
+				><img src={logo} alt="Sodor Parish Council logo" /></svelte:fragment
+			>
+			<p>
+				Render all the menu items here, and possibly the logic which shows what submenu you're
+				currently looking at
+			</p>
+			<svelte:fragment slot="trail"></svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<!-- (sidebarLeft) -->
