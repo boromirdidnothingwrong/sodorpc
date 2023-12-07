@@ -16,3 +16,5 @@ Content, should be loaded in using fetch() in +layout.svelte. Putting it in the 
 
 TASK: Figure out how to load new data when the link is clicked. Moderately sure this is doable by calling back to layout? Need to see.
 
+NB: 'Authorization' needs the quotes. Don't know why but it do. 
+
