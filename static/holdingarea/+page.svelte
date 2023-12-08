@@ -2,9 +2,7 @@
 	import { Paginator } from '@skeletonlabs/skeleton';
 	import type { PageServerData } from './$types';
 	import { sanitize, isSupported } from 'isomorphic-dompurify';
-	export let data;
-	export const datajson = JSON.stringify(data);
-	import Quote from '$lib/components/Quote.svelte';
+	export let data: PageServerData;
 
 	/* we could probably use data to fill the source with source data, each set would need to be an array of it's own, title and summary 
 	This would be great for a blog slider. Get every child of the "blog" node
@@ -36,10 +34,59 @@
 <!-- By a similar dint, check out here: https://learn.svelte.dev/tutorial/svelte-component With that we should be able to create standard templates
 for each content type and then render them into their own divs to keep everything neat.-->
 <body>
-	<h1 style="text: centered">{data.entryData.entryTitle}</h1>
-
-	<Quote propValue="Pass this to the child!" />
+	<h1 style="text: centered">{data.item.entryTitle}</h1>
 	<br />
+	<div class="layout">
+		<div class="menubar"></div>
+	</div>
+	<h1 style="text-align: center">{data}</h1>
+	<br />
+
+	<div>Page content area</div>
+	<div style="margin: auto; width: 50%; padding: 10px;">
+		<ul>
+			{#each paginatedSource as blog}
+				<h3>{blog.title}</h3>
+				<p>{blog.summary}</p>
+			{/each}
+		</ul>
+		<Paginator
+			bind:settings={paginationSettings}
+			showFirstLastButtons={false}
+			showPreviousNextButtons={true}
+		/>
+	</div>
+	<div id="map">
+		<div class="mapouter">
+			<div class="gmap_canvas">
+				<iframe
+					title="Map showing Edingale Parish Council"
+					width="100%"
+					height="400"
+					id="gmap_canvas"
+					src="https://maps.google.com/maps?q= Edingale&t=&z=16&ie=UTF8&iwloc=&output=embed"
+					frameborder="0"
+					scrolling="no"
+					marginheight="0"
+					marginwidth="0"
+				></iframe>
+				<style>
+					.mapouter {
+						position: relative;
+						text-align: right;
+						height: 400px;
+						width: 100%;
+					}
+					.gmap_canvas {
+						overflow: hidden;
+						background: none !important;
+						height: 400px;
+						width: 100%;
+					}
+				</style>
+			</div>
+		</div>
+	</div>
 </body>
 
 <style>
