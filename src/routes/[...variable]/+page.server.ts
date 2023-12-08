@@ -1,5 +1,5 @@
-import { aT, projectURL } from '$lib/server/baseStuff.js';
-
+import { aT } from '$lib/fetchaccesstoken.';
+import * as pVars from '$lib/projectVariables'
 /** @type {import('./$types').PageServerLoad} */
 
 

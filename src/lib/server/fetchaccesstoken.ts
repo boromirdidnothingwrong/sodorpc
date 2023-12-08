@@ -1,9 +1,7 @@
-import * as pVars from '$lib/server/projectVariables';
-
-export const projectURL = pVars.projectURL;
-
-
-async function fetchAccessToken() {
+// This should now just export the access token. It runs Server side in order to keep the API keys safe.
+// Really the API keys need to be tucked into the static environment bit or I'm a Dutchman, but that can wait.
+// Quite possibly every pc will need different API keys. So that'll be fun!
+export async function fetchAccessToken() {
   let myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -31,9 +29,3 @@ async function fetchAccessToken() {
     return null;
   }
 }
-
-// Export a single constant after fetching the access token
-export const aT = (async () => {
-  const accessToken = await fetchAccessToken();
-  return accessToken;
-})();

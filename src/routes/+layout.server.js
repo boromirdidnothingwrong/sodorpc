@@ -1,20 +1,17 @@
-import * as baseStuffTs from '$lib/server/baseStuff';
-
+import { aT } from '$lib/aT';
+import * as pVars from '$lib/projectVariables'
 /** @type {import('./$types').LayoutServerLoad} */
 export async function load({ fetch }) {
 	// Again, the next two are a mucky way about it. If we can pass it cleaned up down from baseStuff.ts then we'll be grand
     // Until then we import the object and process it per file
-    let accessToken = await baseStuffTs.aT;
+    let accessToken = await aT;
     accessToken = accessToken.access_token;
     let bearer = `bearer ${accessToken}`
-	const rootNodeRes = await fetch(`${baseStuffTs.projectURL}/nodes/root?depth=3`, {
+	const rootNodeRes = await fetch(`${pVars.projectURL}/nodes/root?depth=3`, {
 		headers: { Authorization: `${bearer}` }
 	});
 	const rootNodeData = await rootNodeRes.json();
-    //We need to export this in order to fet
-	const menures = await fetch(`${baseStuffTs.projectURL}/nodes/${rootNodeData.Id}/children?entryLinkDepth=3`, { headers: { Authorization: `${bearer}`}});
-    const menu = await menures.json();
-    return menu;
+    return rootNodeData;
 	}
     
 /* Really this is here just to fetch the surrouinding data to display on every page. 

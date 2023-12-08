@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"dotenv": "^16.3.1"
+		"dotenv": "^16.3.1",
+		"isomorphic-dompurify": "^1.11.0"
 	}
 }

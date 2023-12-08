@@ -7,4 +7,4 @@ const project: string = "sodorParishCouncil"
 // Ex. const project = sodorParishCouncil;
 
 
-export const projectURL: string = `https://cms-staffscc.cloud.contensis.com/projects/${project}`;
+export const projectURL: string = `https://cms-staffscc.cloud.contensis.com/api/delivery/projects/${project}`;

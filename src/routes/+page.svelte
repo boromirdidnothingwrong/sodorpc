@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { Paginator } from '@skeletonlabs/skeleton';
 	import type { PageServerData } from './$types';
+	import { sanitize, isSupported } from 'isomorphic-dompurify';
 	export let data: PageServerData;
+
 	/* we could probably use data to fill the source with source data, each set would need to be an array of it's own, title and summary 
 	This would be great for a blog slider. Get every child of the "blog" node
 	*/
@@ -22,8 +24,15 @@
 		paginationSettings.page * paginationSettings.limit,
 		paginationSettings.page * paginationSettings.limit + paginationSettings.limit
 	);
+
+	// Some of the data passed in could be HTML using the rich text element. So to prevent XSS we need to sanitize it.
+	// To do this we're going to use DOMPurify. Implement it like so: const clean = DOMPurify.sanitize(dirty);
+	// And then pass "clean" or whatever we call it in as an element? Not 100% on that part.
+	// Might be we can call purify in the richText.svelte component and then pass down clean HTML and render it straight in like {@html data.richText} instead
 </script>
 
+<!-- By a similar dint, check out here: https://learn.svelte.dev/tutorial/svelte-component With that we should be able to create standard templates
+for each content type and then render them into their own divs to keep everything neat.-->
 <body>
 	<h1 style="text: centered">{data.item.entryTitle}</h1>
 	<br />

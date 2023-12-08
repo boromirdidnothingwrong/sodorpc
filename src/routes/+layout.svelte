@@ -4,7 +4,9 @@
 	import type { AfterNavigate } from '@sveltejs/kit';
 	import { afterNavigate } from '$app/navigation';
 	import logo from '$lib/images/logo.png';
-	import type { LayoutServerData } from './$types';
+	import type { LayoutData } from './$types';
+	import { aT } from '$lib/aT';
+	import * as pVars from '$lib/projectVariables';
 	afterNavigate((params: AfterNavigate) => {
 		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
 		const elemPage = document.querySelector('#page');
@@ -13,16 +15,27 @@
 		}
 	});
 
-	export let data: LayoutServerData;
-	let tempdata: string = JSON.stringify(data);
-	console.log(`This is the layout.svelte data ${tempdata}`);
+	export async function load({ fetch }) {
+		// Again, the next two are a mucky way about it. If we can pass it cleaned up down from baseStuff.ts then we'll be grand
+		// Until then we import the object and process it per file
+		let accessToken = await aT;
+		accessToken = accessToken.access_token;
+		let bearer = `bearer ${accessToken}`;
+		console.log(baseStuffTs.projectURL);
+		const rootNodeRes = await fetch(`${pVars.projectURL}/nodes/root?depth=3`, {
+			headers: { Authorization: `${bearer}` }
+		});
+		const rootNodeData = await rootNodeRes.json();
+		return rootNodeData;
+	}
+	export let data;
 </script>
 
 <!--
 Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on every page. Data for
 here is imported from +layout.server.js and is accessible to: The page for this route, which
 doesn't use it Any sub layouts (effectively adds a second layer of wrapping _inside_ this one) We
-don't have either here! So that makes it a bit easier */
+don't have either here! So that makes it a bit easier
 -->
 <AppShell>
 	<svelte:fragment slot="header">
@@ -36,7 +49,8 @@ don't have either here! So that makes it a bit easier */
 				><img src={logo} alt="Sodor Parish Council logo" /></svelte:fragment
 			>
 			<p>
-				<!--{#each data.children as child}
+				{data}
+				<!--{#each data.item.children as child}
 					<p>{child}</p>
 				{/each}-->
 			</p>
