@@ -37,7 +37,7 @@
 for each content type and then render them into their own divs to keep everything neat.-->
 <body>
 	<h1 style="text: centered">{data.entryData.entryTitle}</h1>
-
+	<p>If you can see this it's working?</p>
 	<p></p>
 	<div class="data">
 		<Component displayData={data} />
