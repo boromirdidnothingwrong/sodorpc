@@ -4,29 +4,6 @@
 	import type { AfterNavigate } from '@sveltejs/kit';
 	import { afterNavigate } from '$app/navigation';
 	import logo from '$lib/images/logo.png';
-	import type { LayoutData } from '../../src/routes/$types';
-	import accessToken from './server/fetchaccesstoken from '$lib/projectVariables';
-	afterNavigate((params: AfterNavigate) => {
-		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
-		const elemPage = document.querySelector('#page');
-		if (isNewPage && elemPage !== null) {
-			elemPage.scrollTop = 0;
-		}
-	});
-
-	export async function load({ fetch }) {
-		// Again, the next two are a mucky way about it. If we can pass it cleaned up down from baseStuff.ts then we'll be grand
-		// Until then we import the object and process it per file
-		let bearer = `bearer ${accessToken}`;
-		console.log(`The bearer looks like this? ${bearer}`);
-		console.log(pVars.projectURL);
-		const rootNodeRes = await fetch(`${pVars.projectURL}/nodes/root?depth=3`, {
-			headers: { Authorization: `${bearer}` }
-		});
-		const rootNodeData = await rootNodeRes.json();
-		return rootNodeData;
-	}
-	export let data../../src/routes/$types.js;
 </script>
 
 <!--

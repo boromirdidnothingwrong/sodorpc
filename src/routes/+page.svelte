@@ -4,7 +4,7 @@
 	import { sanitize, isSupported } from 'isomorphic-dompurify';
 	export let data;
 	export const datajson = JSON.stringify(data);
-	import Quote from '$lib/components/Quote.svelte';
+	import Component from '$lib/components/Component.svelte';
 
 	/* we could probably use data to fill the source with source data, each set would need to be an array of it's own, title and summary 
 	This would be great for a blog slider. Get every child of the "blog" node
@@ -38,7 +38,10 @@ for each content type and then render them into their own divs to keep everythin
 <body>
 	<h1 style="text: centered">{data.entryData.entryTitle}</h1>
 
-	<Quote propValue="Pass this to the child!" />
+	<p></p>
+	<div class="data">
+		<Component displayData={data} />
+	</div>
 	<br />
 </body>
 

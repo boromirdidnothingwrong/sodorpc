@@ -56,37 +56,6 @@ for each content type and then render them into their own divs to keep everythin
 			showPreviousNextButtons={true}
 		/>
 	</div>
-	<div id="map">
-		<div class="mapouter">
-			<div class="gmap_canvas">
-				<iframe
-					title="Map showing Edingale Parish Council"
-					width="100%"
-					height="400"
-					id="gmap_canvas"
-					src="https://maps.google.com/maps?q= Edingale&t=&z=16&ie=UTF8&iwloc=&output=embed"
-					frameborder="0"
-					scrolling="no"
-					marginheight="0"
-					marginwidth="0"
-				></iframe>
-				<style>
-					.mapouter {
-						position: relative;
-						text-align: right;
-						height: 400px;
-						width: 100%;
-					}
-					.gmap_canvas {
-						overflow: hidden;
-						background: none !important;
-						height: 400px;
-						width: 100%;
-					}
-				</style>
-			</div>
-		</div>
-	</div>
 </body>
 
 <style>
