@@ -1,3 +1,13 @@
+Leaving the below for posterity but this supercedes that really.
+
+Images, in Contensis.
+Routes, just don't. They load dynamically bcuz of Siteview. eh. In theory we can also do a search thing if you get it a bit wrong. Don't know if there's any point.
+
+Fonts: don't.
+
+Put global layout in +layout. This can be over ridden for special cases but for PC's I don't see why.
+
+
 #Example website for Parish Councils
 
 Put styles in app.pcss. They *should* override the default styles. For certainty, set the styles on the elements themselves in +page.svelte.
