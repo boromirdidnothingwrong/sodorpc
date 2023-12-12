@@ -1,4 +1,4 @@
-FROM node:21-alpine
+FROM node:21-alpine as build
 RUN apk update && apk upgrade && apk add dumb-init && adduser -D svelteuser
 USER svelteuser
 WORKDIR /app
