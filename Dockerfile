@@ -14,6 +14,4 @@ EXPOSE 3001
 ENV HOST 0.0.0.0
 ENV PORT 3001
 ENV NODE_ENV production
-ENV PROTOCOL_HEADER x-forwarded-proto
-ENV HOST_HEADER x-forwarded-host
 ENTRYPOINT ["dumb-init", "node", "./build"]
