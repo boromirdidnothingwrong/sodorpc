@@ -14,4 +14,4 @@ EXPOSE 3001
 ENV HOST 0.0.0.0
 ENV PORT 3001
 ENV NODE_ENV production
-ENTRYPOINT ["dumb-init", "node", "./build"]
+ENTRYPOINT ["dumb-init", "node", "/app/build/index.js"]
