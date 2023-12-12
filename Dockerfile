@@ -1,10 +1,15 @@
 FROM node:21-alpine
 RUN apk update && apk upgrade && apk add dumb-init && adduser -D svelteuser
 USER svelteuser
-WORKDIR /usr/app
-COPY ./ ./
-COPY --chown=svelteuser:svelteuser ./ /usr/app
-RUN npm i && npm run build
+WORKDIR /app
+COPY --chown=svelteuser:svelteuser ./ /app
+RUN npm install && npm run build
+
+FROM node:21-alpine
+RUN apk update && apk upgrade && apk add dumb-init && adduser -D svelteuser
+USER svelteuser
+WORKDIR /app
+COPY --chown=svelteuser:svelteuser --from=build /app/build /app/package.json ./
 EXPOSE 3001
 ENV HOST 0.0.0.0
 ENV PORT 3001
