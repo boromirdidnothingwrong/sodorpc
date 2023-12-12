@@ -12,10 +12,6 @@
 {#each data.entryData.councillorinfo as councillor}
 	<div>
 		<h3>{councillor.name}</h3>
-		<img
-			src="https://preview-sodorparishcouncil-staffscc.cloud.contensis.com/{councillor
-				.profilePicture.asset.sys.uri}"
-		/>
 		<p>{councillor.titles || ''}</p>
 		<p>{councillor.biography || ''}</p>
 	</div>
