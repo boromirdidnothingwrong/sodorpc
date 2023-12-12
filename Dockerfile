@@ -4,7 +4,7 @@ USER svelteuser
 WORKDIR /usr/app
 COPY ./ ./
 COPY --chown=svelteuser:svelteuser ./ /usr/app
-RUN npm ci dev && npm run build
+RUN npm i && npm run build
 EXPOSE 3001
 ENV HOST 0.0.0.0
 ENV PORT 3001
