@@ -10,5 +10,4 @@ EXPOSE 3001
 ENV HOST 0.0.0.0
 ENV PORT 3001
 ENV NODE_ENV production
-RUN chmod +x /app/build
 ENTRYPOINT ["dumb-init", "node", "build"]
