@@ -1,3 +1,7 @@
+# A gentle overview
+
+Main branch is master. old_master exists for back reference and will eventually be elegible for pruning.
+
 
 
 # Leaving the below for posterity
