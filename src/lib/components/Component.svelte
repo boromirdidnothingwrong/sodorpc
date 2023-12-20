@@ -1,11 +1,10 @@
 <script lang="ts">
+	import { setData, getData } from '$lib/components/context';
 	export let displayData;
-
-	// do we do an array pointing to each sub component? And dynamically render them? idefk
-	let entryType: string = '';
 </script>
 
-<div style="text-color: red;">
-	<svelte:component this={entryType}></svelte:component>
-	{@html displayData.entryData.richText}
+<!--
+	<div style="text-color: red;">
+	<slot />{@html displayData.entryData.richText}
 </div>
+-->

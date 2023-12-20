@@ -1,4 +1,4 @@
-import * as pVars from '$lib/projectVariables'
+
 import type { PageServerLoad } from './$types';
 
 
@@ -17,7 +17,8 @@ export const load: PageServerLoad = async ({ fetch, params, route}) => {
 
       // Sets the path to whatever is in the browser, like /foo/bar
         nodePath = params.variable;
-        const nodeRes = await fetch(`${pVars.projectURL}/nodes/${nodePath}?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);        
+        console.log(nodePath)
+        const nodeRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/nodes/${nodePath}?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);        
         const nodeData = await nodeRes.json();
         //Set the ID for the entry ahead of getting it
         let entryID = nodeData.entry.sys.id;;
@@ -26,11 +27,13 @@ export const load: PageServerLoad = async ({ fetch, params, route}) => {
           throw new Error("entryID is bad")
         }
         //Get the entry info
-        const entryRes = await fetch(`${pVars.projectURL}/entries/${entryID}?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);
+        const entryRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/entries/${entryID}?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);
         if (!entryRes.ok) {
           throw new Error(`Request failed with status: ${entryRes.status}`);
         }
         const entryData = await entryRes.json();
+        let entryJSON = JSON.stringify(entryData)
+        console.log(`Entry JSON: ${entryJSON}`)
         // Return the data obtained from the second fetch
         return { entryData };
       }

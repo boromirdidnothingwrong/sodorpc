@@ -1,6 +1,8 @@
-// Your one stop shop for global variables!
-// Well not quite global because you need to import this and/or baseStuff at the top of every page but it's close enough
+import {dev} from '$app/environment'
 
+export const title = 'Sodor Parish Council'
+export const description = 'Sodor Parish Council Info'
+export const url = dev ? 'https://localhost:5173/' : 'https://sodorparishcouncil.co.uk'
 
 // Set the Project in this next line
 const project: string = "sodorParishCouncil"

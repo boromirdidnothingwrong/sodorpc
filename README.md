@@ -1,3 +1,9 @@
+Notes for Josh:
+
+To access data in the variable route, you gotta do data.entryData then whatever it is. Suggests multiple exports can be called with different names so you can access other info more easily!
+
+Possible method: Define some fixed entry types, call their component if it's one of them, build sub components into those components!
+
 Leaving the below for posterity but this supercedes that really.
 
 Images, in Contensis.
