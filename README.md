@@ -1,8 +1,12 @@
 # A gentle overview
 
+
+
 Main branch is master. old_master exists for back reference and will eventually be elegible for pruning.
 
+# Notes to an editor
 
+In Contensis, please name all components like nameComponent. This helps keep them seperate when creating the templates. This may need to change to be like Component_name in the future but for now the first way should be good enough.
 
 # Leaving the below for posterity
 Images, in Contensis.
