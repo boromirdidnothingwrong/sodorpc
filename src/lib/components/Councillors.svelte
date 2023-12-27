@@ -2,15 +2,13 @@
 	export let data;
 </script>
 
-<div class="card">
-	<slot />
-</div>
 {#each data.entryData.councillorinfo as councillor}
 	<p>Name: {councillor.name}</p>
 
 	{#if councillor.titles != null}
 		<p>Title: {councillor.titles}</p>
 	{/if}
+	{#if councillor.profilePicture != null}{/if}
 	<br />
 {/each}
 

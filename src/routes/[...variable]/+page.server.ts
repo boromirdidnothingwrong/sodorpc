@@ -33,7 +33,6 @@ export const load: PageServerLoad = async ({ fetch, params, route}) => {
         }
         const entryData = await entryRes.json();
         let entryJSON = JSON.stringify(entryData)
-        console.log(`Entry JSON: ${entryJSON}`)
         // Return the data obtained from the second fetch
         return { entryData };
       }

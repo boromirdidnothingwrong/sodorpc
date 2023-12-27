@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '$lib/app.pcss';
 	import type { LayoutServerData } from './$types';
 	import logo from '$lib/images/logo.png';
 	import Header from '$lib/components/header.svelte';
@@ -6,11 +7,11 @@
 	export let data: LayoutServerData;
 </script>
 
-<Header {data} />
+<Header {data}></Header>
 <main>
 	<slot />
 </main>
-<Footer />
+<Footer></Footer>
 
 <!--
 Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on every page. Data for

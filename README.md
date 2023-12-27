@@ -1,3 +1,7 @@
+# Components
+
+Components are named in Pascal Case. Variables and ID's are all in camel Case.
+
 Notes for Josh:
 
 To access data in the variable route, you gotta do data.entryData then whatever it is. Suggests multiple exports can be called with different names so you can access other info more easily!
