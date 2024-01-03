@@ -5,7 +5,7 @@
 	import '$lib/app.pcss';
 </script>
 
-<p>Welcome to the bloody homepage</p>
+<p>Welcome to the homepage</p>
 <div id="carousel">
 	<Carousel {data} />
 </div>

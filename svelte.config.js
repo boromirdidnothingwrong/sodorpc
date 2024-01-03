@@ -17,7 +17,8 @@ const config = {
 		alias: {
 				// this will match a file
 				'app.css': './static/app.css'
-	}
-}
+	},
+	appDir: 'static',
+		}
 };
 export default config;
