@@ -2,9 +2,9 @@ name: Build Container and Push to Contensis
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "uberbranch" ]
   push:
-    branches: [ "master" ]
+    branches: [ "uberbranch" ]
   workflow_dispatch:
   
 env:
@@ -46,7 +46,7 @@ jobs:
         uses: contensis/block-push@v1
         with:
           alias: staffscc
-          block-id: master-has-given-dobby-a-block
+          block-id: roblocks
           client-id: ${{ secrets.Z_CLIENT_ID }}
           git-token: ${{ github.token }}
           image-uri: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAGS }}
