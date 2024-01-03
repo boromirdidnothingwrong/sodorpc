@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let data;
-	import '$lib/Accordion.svelte' as accordionComponent;
 </script>
 
 {#each data.entryData.composer as composer}
