@@ -8,7 +8,9 @@
 	{#if councillor.titles != null}
 		<p>Title: {councillor.titles}</p>
 	{/if}
-	{#if councillor.profilePicture != null}{/if}
+	{#if councillor.profilePicture != null}
+		<img src={councillor.profilePicture.asset.sys.uri} alt={councillor.profilePicture.altText} />
+	{/if}
 	<br />
 {/each}
 
@@ -17,3 +19,6 @@
 	<slot />{@html displayData.entryData.richText}
 </div>
 -->
+
+<style>
+</style>

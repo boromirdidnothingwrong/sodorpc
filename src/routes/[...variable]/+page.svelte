@@ -23,6 +23,7 @@
 {/if}
 <br /><br /><br /><br /><br /><br />
 <br />
+
 <!--
 {#each data.entryData.councillorinfo as councillor}
 	<div>
@@ -37,7 +38,5 @@
 	</div>
 {/each}
 -->
-<div>Page content area</div>
-
 <style>
 </style>

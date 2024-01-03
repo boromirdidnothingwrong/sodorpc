@@ -1,8 +1,6 @@
-<script lang="js">
+<script lang="ts">
 	import Component from './Component.svelte';
-
 	export let data;
-	let dataJSON = JSON.stringify(data);
 </script>
 
 <!-- Obviously for prod it'll be the website address but this proves the concept ig?
@@ -24,16 +22,6 @@ The link will then go to the route for that news item (so under News > in site v
 	section {
 		display: flex;
 	}
-
-	.displayNews p {
-		display: flex;
-		flex-flow: row wrap;
-		color: white;
-		flex: 200px;
-		padding: 50px;
-		font-size: 40px;
-	}
-
 	article {
 		padding: 10px;
 		margin: 10px;

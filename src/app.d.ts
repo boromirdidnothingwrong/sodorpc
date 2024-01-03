@@ -8,5 +8,8 @@ declare global {
 		// interface Platform {}
 	}
 }
+declare module siema {
+	siema
+}
 
 export {};
