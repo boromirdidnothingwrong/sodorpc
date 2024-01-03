@@ -2,6 +2,7 @@ FROM node:18-alpine
 RUN apk update && apk upgrade && apk add dumb-init && adduser -D svelteuser
 USER svelteuser
 WORKDIR /usr/app
+COPY manifest.json /
 COPY ./ ./
 COPY --chown=svelteuser:svelteuser ./ /usr/app
 RUN npm i && npm run build
