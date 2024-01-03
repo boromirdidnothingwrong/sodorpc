@@ -1,21 +1,15 @@
-<div class="collapse bg-base-200">
-	<input type="radio" name="my-accordion-1" checked="checked" />
-	<div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-	<div class="collapse-content">
-		<p>hello</p>
-	</div>
-</div>
-<div class="collapse bg-base-200">
-	<input type="radio" name="my-accordion-1" />
-	<div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-	<div class="collapse-content">
-		<p>hello</p>
-	</div>
-</div>
-<div class="collapse bg-base-200">
-	<input type="radio" name="my-accordion-1" />
-	<div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-	<div class="collapse-content">
-		<p>hello</p>
-	</div>
+<script lang="ts">
+	export let data;
+</script>
+
+<div class="collapse collapse-close bg-base-200">
+	{#each data as line}
+		<input type="radio" name="my-accordion-1" />
+		<div class="collapse-title collapse-close text-xl font-medium">
+			{line.question}
+		</div>
+		<div class="collapse-content collapse-close">
+			{@html line.answer}
+		</div>
+	{/each}
 </div>

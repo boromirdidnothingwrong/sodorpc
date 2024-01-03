@@ -5,7 +5,6 @@
 	import NewsArticle from '$lib/components/NewsArticle.svelte';
 	import StandardPage from '$lib/components/StandardPage.svelte';
 	export let data: PageServerData;
-	import '$lib/app.pcss';
 </script>
 
 <!--Using <svelte:component this={data.entryData.sys.entryType} /> should be able to slot in each of the components depending on what's loaded in?-->
