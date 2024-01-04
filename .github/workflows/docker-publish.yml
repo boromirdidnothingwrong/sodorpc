@@ -47,6 +47,7 @@ jobs:
         with:
           alias: staffscc
           block-id: roblocks
+          auto-release: true
           client-id: ${{ secrets.Z_CLIENT_ID }}
           git-token: ${{ github.token }}
           image-uri: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAGS }}
