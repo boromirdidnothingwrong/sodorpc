@@ -1,11 +1,13 @@
 <script lang="ts">
-	export let data;
+	import type { PageServerData } from 'src/$types';
+	export let data: PageServerData;
+	import Image from '$lib/components/Image.svelte';
 </script>
 
 <div class="carousel rounded-box flex justify-stretch gap-4">
 	{#each data.newsData.items as item}
 		<article><div class="displayNews"><a href={item.sys.uri}>{item.title}</a></div></article>
-		<img src="https://cms-staffscc.clound.contensis.com/api/image/{item.asset.sys.id}" />
+		<Image URI={item.entryThumbnail.asset.sys.id} />
 	{/each}
 </div>
 

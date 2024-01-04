@@ -1,5 +1,5 @@
 
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from '../$types';
 
 
 export const load: PageServerLoad = async ({ fetch, params, route}) => {
@@ -9,7 +9,6 @@ export const load: PageServerLoad = async ({ fetch, params, route}) => {
       // Sets the path to whatever is in the browser, like /foo/bar
       
         nodePath = params.variable;
-        console.log("Here is the node path:" + nodePath)
         const nodeRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/nodes/${nodePath}?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);        
         const nodeData = await nodeRes.json();
         //Set the ID for the entry ahead of getting it

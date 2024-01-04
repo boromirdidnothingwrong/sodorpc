@@ -1,19 +1,19 @@
 <script lang="ts">
-	import type { PageData } from '$types';
+	import type { PageServerData } from '$types';
 	import Image from '$lib/components/Image.svelte';
-	export let data: PageData;
+	export let data: PageServerData;
 </script>
 
-{#each data.entryData.councillorinfo as councillor}
-	<p>Name: {councillor.name}</p>
+{#each data.entryData.councillorinfo as { name, titles, profilePicture }}
+	<p>Name: {name}</p>
 
-	{#if councillor.titles != null}
-		<p>Title: {councillor.titles}</p>
+	{#if titles != null}
+		<p>Title: {titles}</p>
 	{/if}
 	<div>
 		<img
 			src="https://www.nationalgeographic.com/animals/mammals/facts/domestic-cat"
-			alt={councillor.profilePicture.altText}
+			alt={profilePicture.altText}
 		/>
 	</div>
 {/each}

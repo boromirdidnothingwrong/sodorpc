@@ -6,6 +6,5 @@
 
 <div class="container mx-auto px-8">
 	<p>Welcome to the homepage</p>
-
 	<Carousel {data} />
 </div>
