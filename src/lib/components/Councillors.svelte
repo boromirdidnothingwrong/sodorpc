@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data;
+	import type { PageData } from '$types';
+	import Image from '$lib/components/Image.svelte';
+	export let data: PageData;
 </script>
 
 {#each data.entryData.councillorinfo as councillor}
@@ -8,10 +10,12 @@
 	{#if councillor.titles != null}
 		<p>Title: {councillor.titles}</p>
 	{/if}
-	{#if councillor.profilePicture != null}
-		<img src={councillor.profilePicture.asset.sys.uri} alt={councillor.profilePicture.altText} />
-	{/if}
-	<br />
+	<div>
+		<img
+			src="https://www.nationalgeographic.com/animals/mammals/facts/domestic-cat"
+			alt={councillor.profilePicture.altText}
+		/>
+	</div>
 {/each}
 
 <!--

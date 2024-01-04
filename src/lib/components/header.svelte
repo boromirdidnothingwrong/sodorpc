@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as config from '$lib/config';
-	const projectName: string = 'sodorPC';
+
 	export let data;
 	import Logo from '$lib/logo.svelte';
 	import '$lib/app.pcss';
@@ -40,9 +40,7 @@
 			{/each}
 		</ul>
 	</div>
-	<div class="navbar-end">
-		<a class="btn">Button</a>
-	</div>
+	<div class="navbar-end"></div>
 </div>
 <header></header>
 

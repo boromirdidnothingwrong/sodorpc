@@ -5,4 +5,4 @@ export async function load({ fetch }) {
 	const rootNodeRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/nodes/root?depth=3&accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);
 	const rootNodeData = await rootNodeRes.json();
     return { rootNodeData };
-	}
+	} 

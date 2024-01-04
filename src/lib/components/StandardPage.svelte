@@ -17,6 +17,10 @@
 				</div>
 			</div>
 		{/each}
+	{:else if composer.type == 'richText'}
+		{#each composer.value as value}
+			<div>{@html value}</div>
+		{/each}
 	{/if}
 {/each}
 
@@ -26,7 +30,4 @@
 <p>{data.entryData.longText || ''}</p>
 -->
 <style>
-	h1 {
-		font-size: 2.5em;
-	}
 </style>

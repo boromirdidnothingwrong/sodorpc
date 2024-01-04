@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '$lib/app.pcss';
 	import type { LayoutServerData } from './$types';
 	import logo from '$lib/images/logo.png';
 	import Header from '$lib/components/header.svelte';
