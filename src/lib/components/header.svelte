@@ -24,26 +24,29 @@
 					/></svg
 				>
 			</div>
-			<ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+			<ul
+				tabindex="0"
+				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 flex-grow"
+			>
 				{#each data.rootNodeData.children as children}
 					<li><a href={children.path}>{children.displayName}</a></li>
-					<p>&nbsp;</p>
 				{/each}
 			</ul>
 		</div>
 		<a class="btn btn-ghost text-xl" href="/">Sodor Parish Council</a>
 	</div>
-	<div class="navbar-center hidden lg:flex">
-		<ul class="menu menu-horizontal px-1">
-			{#each data.rootNodeData.children as children}
-				<a href={children.path}>{children.displayName}</a>
-			{/each}
+	<div class="navbar-center hidden lg:flex flex-grow">
+		<ul
+			tabindex="0"
+			class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 flex-grow"
+		>
+			<li>
+				{#each data.rootNodeData.children as children}
+					<li><a href={children.path}>{children.displayName}</a></li>
+					<p>&nbsp;</p>
+				{/each}
+			</li>
 		</ul>
 	</div>
 	<div class="navbar-end"></div>
 </div>
-<header></header>
-
-<separator>
-	<hr />
-</separator>

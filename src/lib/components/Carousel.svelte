@@ -1,15 +1,26 @@
 <script lang="ts">
 	export let data;
 	import Image from '$lib/components/Image.svelte';
-	console.log(JSON.stringify(data.newsData.items));
 </script>
 
-<div class="carousel rounded-box flex justify-stretch gap-4">
+<div class="carousel rounded-box flex grow justify-stretch gap-4">
 	{#each data.newsData.items as item}
-		<article><div class="displayNews"><a href={item.sys.uri}>{item.title}</a></div></article>
-		{#if item.entry.entryThumbail != null}
-			<p>{item.entry.entryThumbnail}</p>
-		{/if}
+		<div class="card w-96 bg-base-100 shadow-xl">
+			<figure>
+				<!--	{#if item.thumbnailImage.asset.sys.id != undefined}
+					<Image URI={item.thumbnailImage.asset.sys.id} />
+				{:else}
+					<Image URI="defaultNews" />
+				{/if}-->
+			</figure>
+			<div class="card-body">
+				<h2 class="card-title">{item.title}</h2>
+				<p>{item.entry.entryDescription}</p>
+				<div class="card-actions justify-end">
+					<a role="button" class="btn btn-primary" href={item.sys.uri}>Link</a>
+				</div>
+			</div>
+		</div>
 	{/each}
 </div>
 
