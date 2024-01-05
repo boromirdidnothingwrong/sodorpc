@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { PageServerData } from '$types';
 	import Image from '$lib/components/Image.svelte';
-	export let data: PageServerData;
+	export let data;
 </script>
 
 {#each data.entryData.councillorinfo as { name, titles, profilePicture }}

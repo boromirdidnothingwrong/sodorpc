@@ -7,17 +7,15 @@
 	{#each data.newsData.items as item}
 		<div class="card w-96 bg-base-100 shadow-xl">
 			<figure>
-				<!--	{#if item.thumbnailImage.asset.sys.id != undefined}
+				{#if item.thumbnailImage != null && item.thumbnailImage.asset != null}
 					<Image URI={item.thumbnailImage.asset.sys.id} />
-				{:else}
-					<Image URI="defaultNews" />
-				{/if}-->
+				{:else}<p>Default news image</p>{/if}
 			</figure>
 			<div class="card-body">
 				<h2 class="card-title">{item.title}</h2>
-				<p>{item.entry.entryDescription}</p>
+				<p>{item.entryDescription || 'A description has not been provided.'}</p>
 				<div class="card-actions justify-end">
-					<a role="button" class="btn btn-primary" href={item.sys.uri}>Link</a>
+					<a role="button" class="btn btn-secondary" href={item.sys.uri}>Read more</a>
 				</div>
 			</div>
 		</div>

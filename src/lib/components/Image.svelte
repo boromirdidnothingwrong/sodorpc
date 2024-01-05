@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { stringify } from 'querystring';
 	import { onMount } from 'svelte';
 	export let URI: string;
 

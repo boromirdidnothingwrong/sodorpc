@@ -4,7 +4,9 @@
 	import NewsArticle from '$lib/components/NewsArticle.svelte';
 	import StandardPage from '$lib/components/StandardPage.svelte';
 	import FilePage from '$lib/components/FilePage.svelte';
-	export let data: PageServerData;
+	export let data;
+	let jsondata = JSON.stringify(data);
+	console.log(jsondata);
 </script>
 
 <div class="container mx-auto px-8">

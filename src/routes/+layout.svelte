@@ -8,7 +8,9 @@
 
 <Header {data}></Header>
 <main>
-	<slot />
+	<div>
+		<slot />
+	</div>
 </main>
 <Footer></Footer>
 
