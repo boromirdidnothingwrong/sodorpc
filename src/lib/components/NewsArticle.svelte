@@ -9,4 +9,5 @@
 	{#if item.type === 'longText'}
 		<p>{item.value}</p>
 	{/if}
+	{#if item.type === 'image'}{/if}
 {/each}

@@ -1,13 +1,15 @@
 <script lang="ts">
-	import type { PageServerData } from 'src/$types';
-	export let data: PageServerData;
+	export let data;
 	import Image from '$lib/components/Image.svelte';
+	console.log(JSON.stringify(data.newsData.items));
 </script>
 
 <div class="carousel rounded-box flex justify-stretch gap-4">
 	{#each data.newsData.items as item}
 		<article><div class="displayNews"><a href={item.sys.uri}>{item.title}</a></div></article>
-		<Image URI={item.entryThumbnail.asset.sys.id} />
+		{#if item.entry.entryThumbail != null}
+			<p>{item.entry.entryThumbnail}</p>
+		{/if}
 	{/each}
 </div>
 
