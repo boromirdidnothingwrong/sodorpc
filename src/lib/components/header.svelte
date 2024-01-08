@@ -1,6 +1,5 @@
 <script lang="ts">
 	import * as config from '$lib/config';
-
 	export let data;
 	import Logo from '$lib/logo.svelte';
 	import '$lib/app.pcss';
@@ -29,7 +28,18 @@
 				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				{#each data.rootNodeData.children as children}
-					<li><a href={children.path}>{children.displayName}</a></li>
+					{#if children.childCount > 0}
+						<li>
+							<a href={children.path}>{children.displayName}</a>
+							<ul class="p-2">
+								{#each children.children as submenu}
+									<li><a href={submenu.path}>{submenu.displayName}</a></li>
+								{/each}
+							</ul>
+						</li>
+					{:else}
+						<li><a href={children.path}>{children.displayName}</a></li>
+					{/if}
 				{/each}
 			</ul>
 		</div>
@@ -38,7 +48,21 @@
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal px-1">
 			{#each data.rootNodeData.children as children}
-				<li><a href={children.path}>{children.displayName}</a></li>
+				{#if children.childCount > 0}
+					<li>
+						<details>
+							<summary> <a href={children.path}>{children.displayName}</a></summary>
+
+							<ul class="p-2 z-50">
+								{#each children.children as submenu}
+									<li><a href={submenu.path}>{submenu.displayName}</a></li>
+								{/each}
+							</ul>
+						</details>
+					</li>
+				{:else}
+					<li><a href={children.path}>{children.displayName}</a></li>
+				{/if}
 			{/each}
 		</ul>
 	</div>
