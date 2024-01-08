@@ -5,8 +5,6 @@
 	import StandardPage from '$lib/components/StandardPage.svelte';
 	import FilePage from '$lib/components/FilePage.svelte';
 	export let data;
-	let jsondata = JSON.stringify(data);
-	console.log(jsondata);
 </script>
 
 <div class="container mx-auto px-8">
@@ -20,11 +18,11 @@
 	{#if data.entryData.sys.contentTypeId === 'standardPage'}
 		<StandardPage {data} />
 	{/if}
+	<!-->
 	{#if data.entryData.sys.contentTypeId === 'fileUpload'}
 		<FilePage {data} />
 	{/if}
-	<br /><br /><br /><br /><br /><br />
-	<br />
+	-->
 </div>
 
 <style>

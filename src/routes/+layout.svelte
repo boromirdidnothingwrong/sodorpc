@@ -12,7 +12,9 @@
 		<slot />
 	</div>
 </main>
-<Footer></Footer>
+<div>
+	<Footer></Footer>
+</div>
 
 <!--
 Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on every page. Data for

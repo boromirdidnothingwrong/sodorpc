@@ -17,11 +17,5 @@
 	</div>
 {/each}
 
-<!--
-	<div style="text-color: red;">
-	<slot />{@html displayData.entryData.richText}
-</div>
--->
-
 <style>
 </style>

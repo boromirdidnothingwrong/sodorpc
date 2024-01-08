@@ -2,8 +2,10 @@
 	import * as config from '$lib/config';
 </script>
 
-<footer>
-	<p>{config.title} &copy {new Date().getFullYear()}</p>
+<footer class="footer footer-center p-4 bg-base-300 text-base-content fixed bottom-0">
+	<aside>
+		<p>{config.title} &copy {new Date().getFullYear()}</p>
+	</aside>
 </footer>
 
 <style>
