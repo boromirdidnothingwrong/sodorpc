@@ -26,7 +26,7 @@
 			</div>
 			<ul
 				tabindex="0"
-				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 flex-grow"
+				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				{#each data.rootNodeData.children as children}
 					<li><a href={children.path}>{children.displayName}</a></li>
@@ -35,18 +35,14 @@
 		</div>
 		<a class="btn btn-ghost text-xl" href="/">Sodor Parish Council</a>
 	</div>
-	<div class="navbar-center hidden lg:flex flex-grow">
-		<ul
-			tabindex="0"
-			class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 flex-grow"
-		>
-			<li>
-				{#each data.rootNodeData.children as children}
-					<li><a href={children.path}>{children.displayName}</a></li>
-					<p>&nbsp;</p>
-				{/each}
-			</li>
+	<div class="navbar-center hidden lg:flex">
+		<ul class="menu menu-horizontal px-1">
+			{#each data.rootNodeData.children as children}
+				<li><a href={children.path}>{children.displayName}</a></li>
+			{/each}
 		</ul>
 	</div>
-	<div class="navbar-end"></div>
+	<div class="navbar-end">
+		<a class="btn">Button</a>
+	</div>
 </div>
