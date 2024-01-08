@@ -5,7 +5,7 @@
 
 <div class="carousel rounded-box gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 	{#each data.newsData.items.slice(0, 4) as item}
-		<div class="card bg-base-100 shadow-xl">
+		<div class="card bg-base-100">
 			<figure></figure>
 			<div class="card-body">
 				<h2 class="card-title">{item.title}</h2>

@@ -25,7 +25,7 @@
 			{/each}
 		{:else if composer.type == 'location'}
 			<p style="text-color: red">
-				If you can't see a map here, the web developer is making a boo boo.
+				If you can't see a map here, the web developer hasn't finished implementing the feature.
 			</p>
 		{/if}
 	</div>
