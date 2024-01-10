@@ -42,6 +42,7 @@
 	"dependencies": {
 		"isomorphic-dompurify": "^1.11.0",
 		"lucide-svelte": "^0.294.0",
-		"siema": "^1.5.1"
+		"siema": "^1.5.1",
+		"theme-change": "^2.5.0"
 	}
 }

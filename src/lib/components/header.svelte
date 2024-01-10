@@ -66,7 +66,5 @@
 			{/each}
 		</ul>
 	</div>
-	<div class="navbar-end">
-		<a class="btn">Button</a>
-	</div>
+	<div class="navbar-end"></div>
 </div>
