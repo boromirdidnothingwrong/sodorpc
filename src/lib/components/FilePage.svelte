@@ -9,7 +9,7 @@
 	<a
 		role="button"
 		class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
-		href="https://live-sodorparishcouncil-staffscc.cloud.contensis.com/${item.asset.sys.uri}"
+		href="https://live-sodorparishcouncil-staffscc.cloud.contensis.com{item.asset.sys.uri}"
 		>Download</a
 	>
 {/each}
