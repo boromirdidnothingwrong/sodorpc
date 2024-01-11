@@ -1,5 +1,12 @@
 # Components
 
+Tasks
+1. Make a script to modify the site string so that it all works as the block or smth. Also change the name and project for the block.
+2. Make a listener somehow that then puts changes into the css file. Contensis does webhooks. You can pass in whatever data and then idk do the mods. Vite _should_ watch for any file changes and trigger a rebuild _within_ the container. Maybe.
+3. I forgot. 
+
+
+
 Components are named in Pascal Case. Variables and ID's are all in camel Case.
 
 Notes for Josh:
