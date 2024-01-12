@@ -28,11 +28,7 @@ jobs:
         with:
           find: 'sodorparishcouncil'
           replace: ${{ matrix.project-id }}
-          regex: false
-      # Checkout push-to-registry action github repository
-      - name: Checkout Push to Registry action
-        uses: actions/checkout@v2
-
+          regex: true
       # login to registry
       - name: Log into container registry
         if: github.event_name != 'pull_request'
