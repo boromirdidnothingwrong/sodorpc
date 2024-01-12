@@ -18,7 +18,7 @@ jobs:
     permissions: write-all
     strategy:
       matrix:
-        project-id: ['BroomhillParishCouncil']
+        project-id: ['broomhillparishpouncil']
 
     steps:
       #Replace any instance of SodorParishCouncil with whatever is in the matrix
