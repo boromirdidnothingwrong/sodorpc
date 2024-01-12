@@ -57,6 +57,6 @@ jobs:
           auto-release: true
           client-id: ${{ secrets.Z_CLIENT_ID }}
           git-token: ${{ github.token }}
-          image-uri: ${{ format('{0}/{1}:{2}', env.IMAGE_NAME, matrix.project-id, env.IMAGE_TAGS) }}
+          image-uri: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/${{ matrix.project-id}}:${{ env.IMAGE_TAGS }}
           project-id: ${{ matrix.project-id }}
           shared-secret: ${{ secrets.Z_SHARED_SECRET }}
