@@ -47,7 +47,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_TAGS) }}
+          tags: ${{ env.IMAGE_TAGS }}
 
       - name: Contensis block push action
         uses: contensis/block-push@v1
