@@ -4,7 +4,7 @@
 	export let data: PageServerData;
 </script>
 
-{#each data.entryData.fileUploadComponent as item}
+{#each data.entryData.fileUploadComponent.reverse() as item}
 	<h3>{item.description}</h3>
 	<a
 		role="button"

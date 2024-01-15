@@ -7,7 +7,6 @@ export const load: PageServerLoad = async ({ fetch, params }) => {
       
       // Sets the path to whatever is in the browser, like /foo/bar
         nodePath = JSON.stringify(params.variable).slice(1, -1);
-        console.log(nodePath)
         const nodeRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/nodes/${nodePath}?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);        
         const nodeData = await nodeRes.json();
         //Set the ID for the entry ahead of getting it

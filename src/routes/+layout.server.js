@@ -4,5 +4,8 @@ export async function load({ fetch }) {
     // Until then we import the object and process it per file
 	const rootNodeRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/nodes/root?depth=3&accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);
 	const rootNodeData = await rootNodeRes.json();
-    return { rootNodeData };
+
+	const newsRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/contenttypes/newsArticle/entries?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);
+	const newsData = await newsRes.json();
+    return { rootNodeData, newsData };
 	} 

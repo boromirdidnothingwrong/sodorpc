@@ -1,6 +1,8 @@
 <script lang="ts">
-	import Carousel from '$lib/components/Carousel.svelte';
+	import NewsPageCarousel from '$lib/components/newsPageCarousel.svelte';
 	export let data;
+
+	console.log('News page data: ' + JSON.stringify(data));
 </script>
 
-<Carousel {data} />
+<NewsPageCarousel {data} />
