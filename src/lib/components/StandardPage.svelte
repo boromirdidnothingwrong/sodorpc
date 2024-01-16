@@ -1,8 +1,6 @@
 <script lang="ts">
 	export let data;
-	import Accordion from '$lib/components/Accordion.svelte';
-	import Map from '$lib/components/Map.svelte';
-	import { ComposerComponents } from '$lib/schema';
+	import Image from '$lib/components/Image.svelte';
 </script>
 
 {#each data.entryData.composer as composer}
@@ -27,6 +25,12 @@
 			<p style="text-color: red">
 				If you can't see a map here, the web developer hasn't finished implementing the feature.
 			</p>
+		{:else if composer.type == 'image'}
+			{#each composer.value as value}
+				{#if composer.value.asset != null}
+					<Image URI={value.asset.sys.id} />
+				{/if}
+			{/each}
 		{/if}
 	</div>
 {/each}
