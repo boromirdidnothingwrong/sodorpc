@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     strategy:
+      fail-fast: false
       matrix:
         project-id: ['sodorparishcouncil', 'testingjosh', 'broomhillparishcouncil']
 
@@ -44,7 +45,6 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/${{ matrix.project-id}}:${{ env.IMAGE_TAGS }}
-
       - name: Contensis block push action
         uses: contensis/block-push@v1
         with:
