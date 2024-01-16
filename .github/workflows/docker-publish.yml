@@ -14,6 +14,7 @@ env:
 jobs:
   build:
     name: Build and push image
+    if: needs.pr-check.outputs.number != 'null'
     runs-on: ubuntu-latest
     permissions: write-all
     strategy:
@@ -22,10 +23,12 @@ jobs:
         project-id: ['sodorparishcouncil', 'testingjosh', 'broomhillparishcouncil']
 
     steps:
+        
       #Replace any instance of SodorParishCouncil with whatever is in the matrix
       - uses: actions/checkout@v2
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v3
+        if: needs.pr-check.outputs.number != 'null'
         with:
           find: 'sodorparishcouncil'
           replace: ${{ matrix.project-id }}
