@@ -12,6 +12,6 @@ RUN apk add dumb-init && adduser -D svelteuser
 ENV HOST=0.0.0.0 PORT=3001 NODE_ENV=production PROTOCOL_HEADER=x-forwarded-proto HOST_HEADER=x-forwarded-host
 WORKDIR /usr/app
 COPY manifest.json /
-COPY --chown=svelteuser:svelteuser --from=build /usr/app /usr/app
+COPY --chown=svelteuser:svelteuser --from=build /usr/app/build /usr/app
 EXPOSE 3001
 CMD ["dumb-init", "node", "build"]
