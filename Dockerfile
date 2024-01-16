@@ -1,7 +1,7 @@
 # Build
 FROM node:latest AS build
 WORKDIR /usr/app
-COPY package*.json /usr/app/
+COPY . /usr/app/
 RUN ls /usr/app
 RUN ls /
 RUN npm ci && npm run build
