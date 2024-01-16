@@ -22,7 +22,7 @@ module.exports = {
 },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: [
+    themes: [ "emerald", "coffee",
       { customTheme1: { "primary": "#a991f7",
       "secondary": "#10c128",
       "accent": "#37cdbe",

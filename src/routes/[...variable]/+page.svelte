@@ -18,11 +18,9 @@
 	{#if data.entryData.sys.contentTypeId === 'standardPage'}
 		<StandardPage {data} />
 	{/if}
-	<!-->
 	{#if data.entryData.sys.contentTypeId === 'fileUpload'}
 		<FilePage {data} />
 	{/if}
-	-->
 </div>
 
 <style>

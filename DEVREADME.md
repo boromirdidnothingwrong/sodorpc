@@ -1,5 +1,16 @@
 # Components
 
+Tasks
+~1. Make a script to modify the site string so that it all works as the block or smth. Also change the name and project for the block. Do this in a separate "instrumentation" block/site.~
+
+2. Make a listener somehow that then puts changes into the css file. Contensis does webhooks. You can pass in whatever data and then idk do the mods. Vite _should_ watch for any file changes and trigger a rebuild _within_ the container. Maybe. _The only issue with this is you have to bundle_ everything _which is bad from a security perspective and creates larger images. That matters more to my mind._
+   
+4. Need to update the dockerfile to increase security.
+   
+6. All pages and their links etc should be fetched early and loaded into some sort of array. This is to prevent repeated traversals. Can be streamed using promises. Improves speed and user experience if they're not waiting for the site to fetch the entry id then the entry then any images... Images are a weird one don't think there's anything we can do there, except stream them in like we are doing so don't worry about that bit, just the entry IDs. Get 10 layers from root node, if we're doing /any/further/nested/than/that/then/we/have/bigger/problems...
+
+
+
 Components are named in Pascal Case. Variables and ID's are all in camel Case.
 
 Notes for Josh:

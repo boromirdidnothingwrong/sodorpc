@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let data;
-	import Image from '$lib/components/Image.svelte';
 </script>
 
 <div class="carousel rounded-box gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">

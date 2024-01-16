@@ -2,26 +2,33 @@ name: Build Container and Push to Contensis
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: ['master']
   push:
-    branches: [ "master" ]
+    branches: ['master']
   workflow_dispatch:
-  
+
 env:
-    IMAGE_NAME: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
-    IMAGE_TAGS: build-${{ github.run_number }}
+  IMAGE_NAME: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
+  IMAGE_TAGS: build-${{ github.run_number }}
 
 jobs:
   build:
     name: Build and push image
     runs-on: ubuntu-latest
     permissions: write-all
-    
-    steps:
-      # Checkout push-to-registry action github repository
-      - name: Checkout Push to Registry action
-        uses: actions/checkout@v2
+    strategy:
+      matrix:
+        project-id: ['sodorparishcouncil', 'testingjosh', 'broomhillparishcouncil']
 
+    steps:
+      #Replace any instance of SodorParishCouncil with whatever is in the matrix
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: 'sodorparishcouncil'
+          replace: ${{ matrix.project-id }}
+          regex: true
       # login to registry
       - name: Log into container registry
         if: github.event_name != 'pull_request'
@@ -36,12 +43,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAGS }}
+          tags: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/${{ matrix.project-id}}:${{ env.IMAGE_TAGS }}
 
-  push_to_contensis:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Contensis block push action
         uses: contensis/block-push@v1
         with:
@@ -50,6 +53,6 @@ jobs:
           auto-release: true
           client-id: ${{ secrets.Z_CLIENT_ID }}
           git-token: ${{ github.token }}
-          image-uri: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAGS }}
-          project-id: sodorparishcouncil
+          image-uri: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/${{ matrix.project-id}}:${{ env.IMAGE_TAGS }}
+          project-id: ${{ matrix.project-id }}
           shared-secret: ${{ secrets.Z_SHARED_SECRET }}

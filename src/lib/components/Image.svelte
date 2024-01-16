@@ -26,7 +26,11 @@
 {#if loaded}
 	<img src={prefix.concat(URI)} alt="Document" />
 {:else if failed}
-	<img src="https://icon-library.com/images/not-found-icon/not-found-icon-20.jpg" alt="Not Found" />
+	<img
+		class=""
+		src="https://icon-library.com/images/not-found-icon/not-found-icon-20.jpg"
+		alt="Not Found"
+	/>
 {:else if loading}
-	<img src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
+	<span class="loading loading-dots loading-md"></span>
 {/if}
