@@ -2,7 +2,9 @@
 FROM node:latest AS build
 WORKDIR /usr/app
 COPY package*.json /usr/app/
-RUN npm ci && npm run build && ls /usr/app
+RUN ls /usr/app
+RUN ls /
+RUN npm ci && npm run build
 
 # Production
 FROM node:lts-apline@sha256:201a9b31be9fb5148ca40c9e727d5e559c659ed9521b3175ba73847026257e32
