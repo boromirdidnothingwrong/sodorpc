@@ -24,7 +24,7 @@ module.exports = {
   daisyui: {
     themes: [
       { customTheme1: { "primary": "#a991f7",
-      "secondary": "#f6d860",
+      "secondary": "#10c128",
       "accent": "#37cdbe",
       "neutral": "#3d4451",
       "base-100": "#ffffff",}}
