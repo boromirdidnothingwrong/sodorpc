@@ -2,8 +2,6 @@
 FROM node:latest AS build
 WORKDIR /usr/app
 COPY . /usr/app/
-RUN ls /usr/app
-RUN ls /
 RUN npm ci && npm run build
 
 # Production
@@ -12,6 +10,6 @@ RUN apk add dumb-init && adduser -D svelteuser
 ENV HOST=0.0.0.0 PORT=3001 NODE_ENV=production PROTOCOL_HEADER=x-forwarded-proto HOST_HEADER=x-forwarded-host
 WORKDIR /usr/app
 COPY manifest.json /
-COPY --chown=svelteuser:svelteuser --from=build /usr/app/build /usr/app
+COPY --chown=svelteuser:svelteuser --from=build /usr/app/build /usr/app/build
 EXPOSE 3001
 CMD ["dumb-init", "node", "build"]
