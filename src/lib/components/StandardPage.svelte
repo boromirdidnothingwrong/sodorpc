@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let data;
 	import Image from '$lib/components/Image.svelte';
+	import Map from '$lib/components/Map.svelte';
 </script>
 
 {#each data.entryData.composer as composer}
@@ -19,18 +20,18 @@
 			{/each}
 		{:else if composer.type == 'richText'}
 			{#each composer.value as value}
-				<div>{@html value}</div>
+				{@html value}
 			{/each}
-		{:else if composer.type == 'location'}
-			<p style="text-color: red">
-				If you can't see a map here, the web developer hasn't finished implementing the feature.
-			</p>
 		{:else if composer.type == 'image'}
 			{#each composer.value as value}
 				{#if composer.value.asset != null}
 					<Image URI={value.asset.sys.id} />
 				{/if}
 			{/each}
+		{:else if composer.type == 'map'}
+			{@const map = composer.value}
+
+			{@html composer.value}
 		{/if}
 	</div>
 {/each}
