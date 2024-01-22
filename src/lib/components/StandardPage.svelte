@@ -29,9 +29,9 @@
 				{/if}
 			{/each}
 		{:else if composer.type == 'map'}
-			{@const map = composer.value}
-
-			{@html composer.value}
+			<div class="w-full">
+				<Map url={composer.value} width="100%" height="" />
+			</div>
 		{/if}
 	</div>
 {/each}
