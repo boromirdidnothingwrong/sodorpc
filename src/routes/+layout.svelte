@@ -8,8 +8,10 @@
 
 <Header {data}></Header>
 <main>
-	<div>
-		<slot />
+	<div class="grid grid-cols-5 gap-3">
+		<div class="col-span-1"></div>
+		<div class="col-span-3"><slot /></div>
+		<div class="col-span-1"></div>
 	</div>
 </main>
 <div>
