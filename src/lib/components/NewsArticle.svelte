@@ -4,7 +4,7 @@
 </script>
 
 <div class="container">
-	{#each data.entryData.newsArticleComposer as item, i}
+	{#each data.entryData.newsArticleComposer as item}
 		{#if item.type === 'longText'}
 			<p>{item.value}</p>
 		{:else if item.type === 'image' && item.value.asset != null}
@@ -14,8 +14,10 @@
 					{item.value.caption || ''}
 				</p>
 			</div>
+		{:else if item.type === 'image' && item.value.asset == null}
+			<p>There was an issue loading this image.</p>
 		{:else}
-			<p>{i + 1} There was an issue loading this image.</p>
+			<p>There was an issue loading this element.</p>
 		{/if}
 	{/each}
 </div>

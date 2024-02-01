@@ -7,13 +7,7 @@
 </script>
 
 <Header {data}></Header>
-<main>
-	<div class="grid grid-cols-5 gap-3">
-		<div class="col-span-1"></div>
-		<div class="col-span-3"><slot /></div>
-		<div class="col-span-1"></div>
-	</div>
-</main>
+<div class="px-5"><slot /></div>
 <div>
 	<Footer></Footer>
 </div>
@@ -23,4 +17,12 @@ Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on eve
 here is imported from +layout.server.js and is accessible to: The page for this route, which
 doesn't use it Any sub layouts (effectively adds a second layer of wrapping _inside_ this one) We
 don't have either here! So that makes it a bit easier
+
+<main>
+	<div class="grid grid-cols-5 gap-3">
+		<div class="col-span-1"></div>
+		<div class="col-span-3"><slot /></div>
+		<div class="col-span-1"></div>
+	</div>
+</main>
 -->
