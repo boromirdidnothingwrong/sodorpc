@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project-id: ['sodorparishcouncil', 'testingjosh', 'broomhillparishcouncil']
+        project-id: ['sodorparishcouncil', 'chapelandhillchorltonparishcouncil']
 
     steps:
         
