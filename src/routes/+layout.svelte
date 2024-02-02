@@ -6,11 +6,15 @@
 	export let data: LayoutServerData;
 </script>
 
-<Header {data}></Header>
-<div class="px-5"><slot /></div>
-<div>
-	<Footer></Footer>
-</div>
+<header>
+	<Header {data} />
+</header>
+<mainclass class="px-5">
+	<slot />
+</mainclass>
+<footer class="fixed bottom-0">
+	<Footer />
+</footer>
 
 <!--
 Layout.svelte is like a wrapper. Stuff like headers, footers etc that are on every page. Data for
