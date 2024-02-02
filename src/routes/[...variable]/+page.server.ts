@@ -1,16 +1,18 @@
 
 import type { PageServerLoad } from '../$types';
 
-export const load: PageServerLoad = async ({ fetch, params }) => {
-  let nodePath: string;
-    try {
-      
+export const load: PageServerLoad = async ({ fetch, params }) => {      
       // Sets the path to whatever is in the browser, like /foo/bar
-        nodePath = JSON.stringify(params.variable).slice(1, -1);
+      
+        let nodePath = JSON.stringify(params.variable).slice(1, -1);
+        if (nodePath === "app.css"){
+        return
+        }
+        else{
         const nodeRes = await fetch(`https://cms-staffscc.cloud.contensis.com/api/delivery/projects/sodorparishcouncil/nodes/${nodePath}?accessToken=XVCYiSuyUhFLluLrcETEmDLTRomYhLMsXwDYcDGB7yCNg2nx`);        
         const nodeData = await nodeRes.json();
         //Set the ID for the entry ahead of getting it
-        let entryID = nodeData.entry.sys.id;;
+        let entryID = nodeData.entry.sys.id;
 
         if (entryID === undefined) {
           throw new Error("entryID is bad")
@@ -26,9 +28,6 @@ export const load: PageServerLoad = async ({ fetch, params }) => {
         }
         // Return the data obtained from the second fetch
         return { entryData };
-      }
-      //If any part of the above fails Try will throw this Catch
-    catch {console.log('Data fetch failed on the variable slug')}  
+      }  
+    }
   
-    // If there's an error or the data structure is invalid, return null or an appropriate default value
-  }

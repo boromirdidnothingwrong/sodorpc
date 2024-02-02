@@ -5,6 +5,7 @@
 	import StandardPage from '$lib/components/StandardPage.svelte';
 	import FilePage from '$lib/components/FilePage.svelte';
 	export let data;
+	console.log('Data from variable page.svelte: ' + JSON.stringify(data));
 </script>
 
 <div class="container mx-auto px-8">

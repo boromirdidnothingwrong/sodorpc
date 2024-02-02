@@ -10,7 +10,7 @@
 		modifiedurl = url.replace(/width="(.*?)"/, 'width=' + '100%' + '" ');
 	}
 
-	modifiedurl = url.replace(/height="(.*?)"/, 'height=' + height + '" ');
+	modifiedurl = modifiedurl.replace(/height="(.*?)"/, 'height=' + height + '" ');
 </script>
 
 {@html modifiedurl}
