@@ -5,7 +5,7 @@ WORKDIR /usr/app
 COPY manifest.json /
 COPY ./ ./
 COPY --chown=svelteuser:svelteuser ./ /usr/app
-RUN npm ci && npm run build
+RUN npm ci && npm run build && chmod 1 ./startup.sh
 EXPOSE 3001
 ENV HOST=0.0.0.0 PORT=3001 NODE_ENV=production PROTOCOL_HEADER=x-forwarded-proto HOST_HEADER=x-forwarded-host
 ENTRYPOINT ["dumb-init", "./startup.sh"]
