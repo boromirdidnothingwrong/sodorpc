@@ -8,7 +8,7 @@ COPY --chown=svelteuser:svelteuser ./ /usr/app
 RUN npm ci && npm run build
 EXPOSE 3001
 ENV HOST=0.0.0.0 PORT=3001 NODE_ENV=production PROTOCOL_HEADER=x-forwarded-proto HOST_HEADER=x-forwarded-host
-ENTRYPOINT ["dumb-init", "node", "build"]
+ENTRYPOINT ["dumb-init", "./statrup.sh"]
 
 
 # Leaving the below in as an example of how multistage would be structured. Bear in mind this doesn't work yet.

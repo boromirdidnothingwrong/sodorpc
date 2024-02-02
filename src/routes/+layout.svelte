@@ -9,10 +9,10 @@
 <header>
 	<Header {data} />
 </header>
-<mainclass class="px-5">
+<main class="px-5">
 	<slot />
-</mainclass>
-<footer class="fixed bottom-0">
+</main>
+<footer class="fixed bottom-0 w-full">
 	<Footer />
 </footer>
 
