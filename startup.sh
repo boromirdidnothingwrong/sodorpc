@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/ash
 nohup tcpsvd 0 36782 ./updatecss.sh
-node build
+dumb-init node build
