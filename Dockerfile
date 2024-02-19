@@ -8,7 +8,7 @@ COPY --chown=svelteuser:svelteuser ./ /usr/app
 RUN npm ci && npm run build && chmod -x ./onstartup.sh
 EXPOSE 3001
 ENV HOST=0.0.0.0 PORT=3001 NODE_ENV=production PROTOCOL_HEADER=x-forwarded-proto HOST_HEADER=x-forwarded-host
-ENTRYPOINT ["./onstartup.sh"]
+ENTRYPOINT ["dumb-init", "node", "build"]
 
 
 # Leaving the below in as an example of how multistage would be structured. Bear in mind this doesn't work yet.
